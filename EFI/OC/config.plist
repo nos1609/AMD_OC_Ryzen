@@ -28,14 +28,6 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-DTPG.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
 				<string>SSDT-USBX.aml</string>
 			</dict>
 			<dict>
@@ -56,7 +48,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Re-name XHC2 USB devices</string>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-DTPG.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Remove/Deactivate Builtin BT/WiFi 6</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-X570-NO-CNVW.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Re-name XHC0 --&gt; XHC2 USB devices</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -64,7 +72,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Re-name XHC3 USB devices</string>
+				<string>Re-name XHC0 --&gt; XHC3 USB devices</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -72,7 +80,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Re-name XHCI USB devices; internal BT/WiFi</string>
+				<string>Re-name XHC1 --&gt; XHCI USB devices; internal BT/WiFi</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -80,7 +88,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Re-name XHCI USB devices; PCIe BT/WiFi</string>
+				<string>Re-name XHC1 --&gt; XHCI USB devices; PCIe BT/WiFi</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -98,7 +106,7 @@
 				<key>Comment</key>
 				<string>ANS1 NMVe Controller when TB DIS-abled</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-X570-NVMe-ANS1-GPP0-noTB.aml</string>
 			</dict>
@@ -330,7 +338,7 @@
 			<true/>
 			<key>ForceExitBootServices</key>
 			<false/>
-			<key>ProtectCsmRegion</key>
+			<key>ProtectMemoryRegions</key>
 			<false/>
 			<key>ProtectSecureBoot</key>
 			<false/>
@@ -338,12 +346,14 @@
 			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
+			<key>RebuildAppleMemoryMap</key>
+			<true/>
 			<key>SetupVirtualMap</key>
 			<true/>
-			<key>ShrinkMemoryMap</key>
-			<false/>
 			<key>SignalAppleOS</key>
 			<false/>
+			<key>SyncRuntimePermissions</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -353,7 +363,7 @@
 			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>Built In</string>
+				<string>Internal@0,1,2/0,0/4,0</string>
 				<key>device-id</key>
 				<data>
 				ORUAAA==
@@ -391,7 +401,7 @@
 			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x4)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>Built In</string>
+				<string>Internal@0,8,1/0,4</string>
 				<key>device_type</key>
 				<string>Multimedia Controller</string>
 				<key>hda-gfx</key>
@@ -452,6 +462,22 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
+				<string>AMDRyzenCPUPowerManagement.kext</string>
+				<key>Comment</key>
+				<string>CPU PowerManagement; must load before SMCAMDProcessor</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AMDRyzenCPUPowerManagement</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>AppleMCEReporterDisabler.kext</string>
 				<key>Comment</key>
 				<string>AppleMCEReporter disabler; req for Catalina</string>
@@ -468,17 +494,17 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>MacProMemoryNotificationDisabler.kext</string>
+				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
-				<string>FIx Memory Slot Problems with SMBIOS MacPro7,1 for 10.15</string>
+				<string>Video patches; AGDP</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/MacProMemoryNotificationDisabler</string>
+				<string>Contents/MacOS/WhateverGreen</string>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string></string>
 				<key>MinKernel</key>
-				<string>19.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -491,22 +517,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCAMDProcessor</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>WhateverGreen.kext</string>
-				<key>Comment</key>
-				<string>Video patches; AGDP</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/WhateverGreen</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -598,7 +608,7 @@
 				<key>BundlePath</key>
 				<string>AirportBrcmFixup.kext</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportBrcmFixup</string>
 				<key>MaxKernel</key>
@@ -612,7 +622,7 @@
 				<key>BundlePath</key>
 				<string>BrcmBluetoothInjector.kext</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -626,7 +636,7 @@
 				<key>BundlePath</key>
 				<string>BrcmFirmwareData.kext</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BrcmFirmwareData</string>
 				<key>MaxKernel</key>
@@ -640,7 +650,7 @@
 				<key>BundlePath</key>
 				<string>BrcmPatchRAM3.kext</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BrcmPatchRAM3</string>
 				<key>MaxKernel</key>
@@ -656,13 +666,29 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BT4LEContinuityFixup</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
+				<string>MacProMemoryNotificationDisabler.kext</string>
+				<key>Comment</key>
+				<string>FIx Memory Slot Problems with SMBIOS MacPro7,1 for 10.15</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/MacProMemoryNotificationDisabler</string>
+				<key>MaxKernel</key>
+				<string>19.99.99</string>
+				<key>MinKernel</key>
+				<string>19.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -1844,6 +1870,8 @@
 		<array/>
 		<key>Boot</key>
 		<dict>
+			<key>ConsoleAttributes</key>
+			<integer>0</integer>
 			<key>HibernateMode</key>
 			<string>None</string>
 			<key>HideAuxiliary</key>
@@ -1851,7 +1879,7 @@
 			<key>HideSelf</key>
 			<true/>
 			<key>PickerAttributes</key>
-			<integer>4</integer>
+			<integer>0</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
@@ -2166,12 +2194,25 @@
 	</dict>
 	<key>UEFI</key>
 	<dict>
+		<key>APFS</key>
+		<dict>
+			<key>EnableJumpstart</key>
+			<true/>
+			<key>HideVerbose</key>
+			<true/>
+			<key>JumpstartHotPlug</key>
+			<false/>
+			<key>MinDate</key>
+			<integer>0</integer>
+			<key>MinVersion</key>
+			<integer>0</integer>
+		</dict>
 		<key>Audio</key>
 		<dict>
 			<key>AudioCodec</key>
 			<integer>0</integer>
 			<key>AudioDevice</key>
-			<string></string>
+			<string>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x4)</string>
 			<key>AudioOut</key>
 			<integer>0</integer>
 			<key>AudioSupport</key>
@@ -2181,7 +2222,7 @@
 			<key>PlayChime</key>
 			<false/>
 			<key>VolumeAmplifier</key>
-			<integer>30</integer>
+			<integer>15</integer>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>

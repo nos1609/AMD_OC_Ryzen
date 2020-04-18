@@ -16,7 +16,7 @@ And while this repository is specific for the __ASRock X570 Creator__ motherboar
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v057 - 3/29/2020***
+***v058 - 4/12/2020***
 
 ***BT/WiFi Updates - 3/23/2020***
 
@@ -33,13 +33,13 @@ The GPU SSDT files, such as _SSDT-X570-RX580-slot-1.aml_, primarily provide corr
 
 There are 3 included SSDT-NVMe-ANSx-X files which rename NVMe M2_x devices and inject information into the System Information/PCI section. The renaming behavior forces the disk icons to be updated and changed from external to internal icons on the desktop. The information changes in these files should be changed to reflect the brand and sizes of NVMe drives that you are using in your build. For example, ANS1 presently indicates that the NVMe SSD is "Corsair Force 600 NVMe 1TB SSD". If your SSD is a Samsung, then change the name (and model) to something like "Samsung PRO 970 NVMe 512GB SSD ".
 
-The two _SSDT-NVMe-ANS1-X_ files describe the drive located at M2_1; and the _SSDT-NVMe-ANS2-X_ file describes the drive at M2_2 (M2_x issues are discussed below in section A6).
+The two _SSDT-NVMe-ANS1-X_ files describe the drive located at M2_1; and the _SSDT-NVMe-ANS2-X_ file describes the drive at M2_2 (M2_x issues are discussed below in section A6). The file _SSDT-X570-NO-CNVW.aml_ is also included to further inactivate the built-in BT/WiFi module.
 
 Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testing is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed firmware NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
 
 As of 3/8/20, there is discussion of how _ThunderboltDROM_ and _ThunderboltConfig_ seem to significant affect TB performance (these files should be adjusted during the week of 3/23). In adjusting the SSDT files, the built-in TB seems to respond well to this injection (SSP1 and SSP2 are assigned to ports 3 and 4, respectively; see image below). SSP1 and SSP2 appear with or without a USB-C drive connected. When the drive is connected at boot, it mounts on the desktop (hot-plug still an issue).
 
-Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet give the same result. So again, TB is a work in progress.
+Using a similar _ThunderboltConfig_ for the flashed TB3 PCIe4 card, does not yet give the same result. As of 4/20, the built-in TB was not working well. However, an add-on PCIe card, such as the Gigabyte Alpine Ridge or Titan Ridge, could be used if the card had it's firmware flashed. This process is beyond the scope of this GItHub (see  [this](https://www.tonymacx86.com/threads/success-gigabyte-designare-z390-thunderbolt-3-i7-9700k-amd-rx-580.267551/) lengthy thread for details.) Kext files for both the Alpine and Titan Ridge are included. The TB PCIe card should be placed in the large slot 2 (technically, PCIe4).)
 
 On board TB3, using _SSDT-X570-TB3-Builtin.aml_:
 
@@ -65,9 +65,7 @@ Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler
 
 MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro7,1_ (which requires Catalina).
 
-[USBWakeFixup](https://github.com/osy86/USBWakeFixup) is an attempt to fix wake issues. A modification to EC.aml was made to work in conjunction with this kext. EDIT (3/27/20): due to issues with ____PRW___ (included in EC.aml) not properly attaching to a device, both this portion of EC.aml was removed along with USBWakeFixup.kext. Until the matter can be properly investigated, it is recommended to disable or remove the kext file as well as update the EC.aml file.
-
-[SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. Presently, it is at v034. Please refer to its GitHub for the latest updates. Also included is the associated AMD Power Gadget app which presents the data. (ThunderboltReset was removed on 3/10/20; it was designed for Alpine Ridge and the mobo uses Titan Ridge; NVMeFix was not properly loading and was removed from the repository on 3/21/20.)
+[SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. Presently, it is at v034. Please refer to its GitHub for the latest updates and for downloading the associated AMD Power Gadget app which presents the data. On 3/25/20, SMCAMDProcessor was augmented with _AMDRyzenCPUPowerManagement.kext_ and a new AMD Power Gadget app.
 
 The above kext files may be updated independent of this repository using [Hackintool](https://www.insanelymac.com/forum/topic/335018-hackintool-v286/), [Kext Updater](https://bitbucket.org/profdrluigi/kextupdater/downloads/) or [OCBuilder](https://github.com/Pavo-IM/ocbuilder/releases). However, the final kext group described in the next paragraph are unique to this build and should not normally need updating, especially by a third party source. Nor, should other USBPort kext files be used in conjunction with them.
 

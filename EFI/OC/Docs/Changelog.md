@@ -1,6 +1,14 @@
 OpenCore Changelog
 ==================
 
+#### v0.5.8
+- Fixed invalid CPU object reference in SSDT-PLUG
+- Fixed incorrect utilities and resources packaging
+- Fixed `Custom` `UpdateSMBIOSMode` modifying SMBIOSv3 table
+- Updated docs to cover separating SMBIOS via `UpdateSMBIOSMode`
+- Fixed rendering macOS installer icons in OpenCanopy
+- Added APFS support with Fusion Drive and enhanced security
+
 #### v0.5.7
 - Added TimeMachine detection to picker
 - Added early preview version of OpenCanopy
@@ -19,7 +27,15 @@ OpenCore Changelog
 - Renamed `AppleUsbKbDxe` driver to `OpenUsbKbDxe`
 - Update builtin firmware
 - Fixed `PowerTimeoutKernelPanic` on 10.15.4
-- Fixed 4K section alignment in `OpenRuntime`
+- Fixed 4K section alignment in `OpenRuntime` to fix Linux booting on SKL
+- Introduced `SyncRuntimePermissions` to fix multiple memory permission flaws
+- Introduced `RebuildAppleMemoryMap` to fix macOS booting on Dell 5490
+- Removed `ShrinkMemoryMap` in favour of more advanced `RebuildAppleMemoryMap`
+- Marked `EnableWriteUnprotector` as deprecated on modern systems
+- Introduced `ProtectMemoryRegions` to fix memory region handling
+- Removed `ProtectCsmRegion` in favour of `ProtectMemoryRegions`
+- Renamed `PickerAttributes` to `ConsoleAttributes`
+- Introduced `PickerAttributes` as a matter of UI configuration
 
 #### v0.5.6
 - Various improvements to builtin text renderer

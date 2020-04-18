@@ -252,7 +252,7 @@
 			<true/>
 			<key>ForceExitBootServices</key>
 			<false/>
-			<key>ProtectCsmRegion</key>
+			<key>ProtectMemoryRegions</key>
 			<false/>
 			<key>ProtectSecureBoot</key>
 			<false/>
@@ -260,11 +260,13 @@
 			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
+			<key>RebuildAppleMemoryMap</key>
+			<false/>
 			<key>SetupVirtualMap</key>
 			<true/>
-			<key>ShrinkMemoryMap</key>
-			<false/>
 			<key>SignalAppleOS</key>
+			<false/>
+			<key>SyncRuntimePermissions</key>
 			<false/>
 		</dict>
 	</dict>
@@ -589,8 +591,10 @@
 			<false/>
 			<key>HideSelf</key>
 			<true/>
-			<key>PickerAttributes</key>
+			<key>ConsoleAttributes</key>
 			<integer>0</integer>
+			<key>PickerAttributes</key>
+			<integer>1</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
@@ -886,6 +890,19 @@
 	</dict>
 	<key>UEFI</key>
 	<dict>
+		<key>APFS</key>
+		<dict>
+			<key>EnableJumpstart</key>
+			<true/>
+			<key>HideVerbose</key>
+			<true/>
+			<key>JumpstartHotPlug</key>
+			<false/>
+			<key>MinVersion</key>
+			<integer>0</integer>
+			<key>MinDate</key>
+			<integer>0</integer>
+		</dict>
 		<key>Audio</key>
 		<dict>
 			<key>AudioCodec</key>
@@ -908,7 +925,6 @@
 		<key>Drivers</key>
 		<array>
 			<string>HfsPlus.efi</string>
-			<string>ApfsDriverLoader.efi</string>
 			<string>OpenRuntime.efi</string>
 			<string>#OpenUsbKbDxe.efi</string>
 			<string>#HiiDatabase.efi</string>
