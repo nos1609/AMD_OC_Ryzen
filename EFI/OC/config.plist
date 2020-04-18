@@ -1846,6 +1846,8 @@
 			<false/>
 			<key>DisableIoMapper</key>
 			<true/>
+			<key>DisableRtcChecksum</key>
+			<false/>
 			<key>DummyPowerManagement</key>
 			<true/>
 			<key>ExternalDiskIcons</key>
@@ -2013,11 +2015,12 @@
 		<dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
-				<string>EFIBluetoothDelay</string>
 				<string>EFILoginHiDPI</string>
+				<string>EFIBluetoothDelay</string>
 				<string>LocationServicesEnabled</string>
 				<string>SystemAudioVolume</string>
 				<string>SystemAudioVolumeDB</string>
+				<string>SystemAudioVolumeSaved</string>
 				<string>bluetoothActiveControllerInfo</string>
 				<string>bluetoothInternalControllerInfo</string>
 				<string>flagstate</string>
@@ -2327,6 +2330,19 @@
 			<key>UnblockFsConnect</key>
 			<false/>
 		</dict>
+		<key>ReservedMemory</key>
+		<array>
+			<dict>
+				<key>Address</key>
+				<integer>268435456</integer>
+				<key>Comment</key>
+				<string>HD3000: IGPU memory corruption errata</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Size</key>
+				<integer>268435456</integer>
+			</dict>
+		</array>
 	</dict>
 </dict>
 </plist>

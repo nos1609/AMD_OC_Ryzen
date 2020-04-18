@@ -8,6 +8,12 @@ OpenCore Changelog
 - Updated docs to cover separating SMBIOS via `UpdateSMBIOSMode`
 - Fixed rendering macOS installer icons in OpenCanopy
 - Added APFS support with Fusion Drive and enhanced security
+- Added AppleEvent mouse support in OpenCanopy
+- Fixed AppleEvent and OpenCanopy compatibility with OVMF TPL restrictions
+- Added mouse drivers to the package as OVMF needs one
+- Added memory region reservation support
+- Added RtcRw tool to manipulate RTC memory
+- Added `PatchAppleRtcChecksum` kernel quirk
 
 #### v0.5.7
 - Added TimeMachine detection to picker

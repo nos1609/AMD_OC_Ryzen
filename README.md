@@ -16,7 +16,7 @@ And while this repository is specific for the __ASRock X570 Creator__ motherboar
 
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v058 - 4/12/2020***
+***v058 - 4/18/2020***
 
 ***BT/WiFi Updates - 3/23/2020***
 
@@ -33,7 +33,9 @@ The GPU SSDT files, such as _SSDT-X570-RX580-slot-1.aml_, primarily provide corr
 
 There are 3 included SSDT-NVMe-ANSx-X files which rename NVMe M2_x devices and inject information into the System Information/PCI section. The renaming behavior forces the disk icons to be updated and changed from external to internal icons on the desktop. The information changes in these files should be changed to reflect the brand and sizes of NVMe drives that you are using in your build. For example, ANS1 presently indicates that the NVMe SSD is "Corsair Force 600 NVMe 1TB SSD". If your SSD is a Samsung, then change the name (and model) to something like "Samsung PRO 970 NVMe 512GB SSD ".
 
-The two _SSDT-NVMe-ANS1-X_ files describe the drive located at M2_1; and the _SSDT-NVMe-ANS2-X_ file describes the drive at M2_2 (M2_x issues are discussed below in section A6). The file _SSDT-X570-NO-CNVW.aml_ is also included to further inactivate the built-in BT/WiFi module.
+The two _SSDT-NVMe-ANS1-X_ files describe the drive located at M2_1; and the _SSDT-NVMe-ANS2-X_ file describes the drive at M2_2 (M2_x issues are discussed below in section A6). 
+
+There are 2 sets of ACPI files which rename the XHC1 USB device to XHCI. There are 2 because of issues with internal vs PCIe BT. See Section A3 below for more details. The file _SSDT-X570-NO-CNVW.aml_ is also included to further inactivate the built-in BT/WiFi module.
 
 Finally, the _SSDT-X570-TB3-Builtin.aml_ file injects the correct XHC5 setting for USB3 functionality and renames the TB nodes. While TB3 is working, it is still incomplete: the TB device must be connected before boot and there is no hot-plug capability. Check the discusson sites listed below for current updates. Hopefully, the only update required to make TB3 fully functional will be a more complete SSDT-TB file replacing the one presently being used. Further, testing is being done with a PCIe Titan Ridge TB card in Slot 4 (PCIe4), which was flashed firmware NVM 23. The SSDT for this is _SSDT-X570-Cr-TB3-GPP9-slot-4.aml_. While this file is included, it is disabled within the ACPI section of the __config.plist__ file. This SSDT injects the XHC device on the PCIe card as XHC1.
 
@@ -62,6 +64,8 @@ AGPMInjector:
 Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described in [Swapping BT Module](https://forum.amd-osx.com/viewtopic.php?p=53060#p53060)), you'll want all of these enabled within the __config.plist__ file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (with a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
 
 Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). Within the __config.plist__ file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
+
+Note (4/18/20): there are recent concerns with sleep issues, jitterey mouse and computer freezes with Radeon VII and Radeon 5700XT graphics cards. It appears to be an issue with WEG. If you are using these cards (and perhaps even any 5x00 card), try disabling WEG and re-booting the system to see if the issues are resolved. When WEG is disabled, you might notice some cosmetic glitches, such as pink/purple lines at the top of the screen, during boot (while the Apple logo progress bar is on-going). These are  inconsequential, so don't worry about them (WEG normally surpresses them without you're knowing it). This problem does not seem to be an issue with older grapics cards.
 
 MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro7,1_ (which requires Catalina).
 
@@ -95,6 +99,8 @@ SET 2. PCIeBT - PCIe BT module, enable following (but disable those in SET 1) - 
     A. SSDT-X570-BXBR_BYUP_BYD8_XHCI-PCIe_BT.aml
 
     B. USBPorts-X570-ASRock-CR-PCIe_BT.kext (removes PRT6 from XHCI, which supplies internal BT/WiFi device)
+    
+    C. SSDT-X570-NO-CNVW.aml (removes internal device)
     
 The images below show the 2 sections, the ACPI and the Kernel sections, in the __config.plist__ file, where these files are to be enabled or disabled. (Note: XHC was renamed to XHCI on 3/7/20 with changes to various other files.)
 
