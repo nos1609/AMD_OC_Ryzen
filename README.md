@@ -14,9 +14,11 @@ As of pre-release v057 (as of 3/15/20), OC has its own graphics menu system, nam
 
 And while this repository is specific for the __ASRock X570 Creator__ motherboard, much will be found in common with other __X570__ motherboards. Therefore, the contained EFI could easily serve as a starting point for those builds. Some areas where there will likely be differences: the Aquantia 10G SSDT, the USBPort kexts, and the SSDT-TB3 file. Disable those 3in the __config.plist__ file (ACPI section) before trying out. Later, change or remove them as you test your system.
 
+Notable change on 4/23/20. [CMMChris](https://forums.macrumors.com/threads/tired-of-low-geekbench-scores-use-radeonboost.2231366/) developer of RadeonBoost and PowerPlayTable spreadsheets, released v1.3 of the RadeonBoost kext which helps the functioning of AMD 5500, 5700 and Radeon VII cards. It includes automatic selection of AGPM injection, simplifying use and now replacing AGPMinjector kext (the old 'two birds with one stone'.) Previously, the user had to select the correct AGPM injector kext for their dGPU; now this process is done automatically. The SSDT files for all graphics cards included in this repository were also updated.
+
 OpenCore version numbers are not incremented for each minor adjustment, but incremented once stable. These small changes within a version can have marked structural changes and yet not be fully documented. Accordingly, it is best to use final release versions. Due to the sometimes daily changes, this repository will only upload changes if the commit seems stable and then note the date of compilation along with the version number. The present EFI folder is: 
 
-***v058 - 4/19/2020***
+***v058 - 4/23/2020***
 
 ***BT/WiFi Updates - 3/23/2020***
 
@@ -50,24 +52,13 @@ On board TB3, using _SSDT-X570-TB3-Builtin.aml_:
 
 ### 2. Kexts
 
-The contents of the Kexts folder can be broken down into various groups. 
+The contents of the Kexts folder can be broken down into various groups. The first to discuss are the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described in [Swapping BT Module](https://forum.amd-osx.com/viewtopic.php?p=53060#p53060)), you'll want all of these enabled within the __config.plist__ file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (with a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
 
-First are the AGPMInjector kexts, which were made using Pavo's [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) app. A few variations were created by selecting different, commonly used GPUs, while keeping the SMBIOS set at iMacPro1,1. These different versions allow flexible selection by the user. The AGPMInjector kext should be paired with a similarly named SSDT-GPU file within the ACPI folder. That is, you use one SSDT-GPU file for your selected GPU and one AGPMInjector kext specific for that same GPU. These should be entered and enabled within the ACPI and Kernel sections of the __config.plist__ file. Default (shown below): _SSDT-X570-RX580-slot-1.aml_ and _AGPMInjector-iMacPro1,1-RX580.kext_ both enabled as a pair in the __config.plist__ file. If you're using a different GPU, then choose among those supplied in the ACPI and Kexts folders, updating the appropriates sections in the __config.plist__ file.
-
-SSDT-RX580:
-![Test Image 2](Images/SSDT-RX580.jpg)
-
-AGPMInjector:
-![Test Image 3](Images/AGPMInj-RX580.jpg)
-
-
-Other groupings within the Kexts folder include the BT/Wifi kexts: AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareData, BrcmPatchRAM3, and BT4LEContinuityFixup. If you've swapped out the stock Intel BT module for a Mac-compatible version (as described in [Swapping BT Module](https://forum.amd-osx.com/viewtopic.php?p=53060#p53060)), you'll want all of these enabled within the __config.plist__ file. On the other hand, if you've added a PCIe BT/WiFi card such as the Fenvi FV-T919 (with a Broadcom 94360CD), then most of these kext files are optional. A few other files will vary depending on whether you're using a swapped BT (SBT) or PCIe BT (PCIeBT). Those changes will be described below.
-
-Yet another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). Within the __config.plist__ file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
+Another grouping are the essential kexts: AppleALC, AppleMCEReporterDisabler, Lilu, SmallTreeIntel82576_mod, VirtualSMC and WhateverGreen (WEG). Within the __config.plist__ file, in the Kernel section, Lilu must be first in order, followed by VirtualSMC. Similarly, WEG should be present before other graphics related kext files.
 
 Note (4/18/20): there are recent concerns with sleep issues, jitterey mouse and computer freezes with Radeon VII and Radeon 5700XT graphics cards. It appears to be an issue with WEG. If you are using these cards (and perhaps even any 5x00 card), try disabling WEG and re-booting the system to see if the issues are resolved. When WEG is disabled, you might notice some cosmetic glitches, such as pink/purple lines at the top of the screen, during boot (while the Apple logo progress bar is on-going). These are  inconsequential, so don't worry about them (WEG normally surpresses them without you're knowing it). This problem does not seem to be an issue with older grapics cards.
 
-MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro7,1_ (which requires Catalina).
+MacProMemoryNotificationDisabler is only to be enabled when using SMBIOS _MacPro7,1_ (which requires Catalina). __Please note: the most stable setup is SMBIOS iMacPro1,1 running under Mojave.__ This SMBIOS is closest to our build. If you have trouble with Catalina (which is still unstable), and you're also using MacPro7,1, you were warned and don't ask for help until to changed back to the recommended setup.
 
 [SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor) is useful for providing CPU temperature and frequency information. Presently, it is at v034. Please refer to its GitHub for the latest updates and for downloading the associated AMD Power Gadget app which presents the data. On 3/25/20, SMCAMDProcessor was augmented with _AMDRyzenCPUPowerManagement.kext_ and a new AMD Power Gadget app.
 
@@ -123,9 +114,11 @@ This section shows the current status of the System Information section in Mac O
 
 ### 5. Drivers
 
-Only a few drivers are required with OpenCore: ApfsDriverLoader and OpenRuntime. Even HSSPlus is optional, but useful. AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
+Only a few drivers are required with OpenCore: ApfsDriverLoader and OpenRuntime. No. As of early v058, ApfsDriverLoader is included within OC. So only OpenRuntime is needed, along with HSSPlus.
 
-Other, potentially useful drivers include OpenUsbKbDxe, ExFatDxe and OpenCanopy. The latter activates a graphical user interface (menu system). OpenCanopy is turned on by default. To change, adjust the __config.plist__ file: see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
+AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of the other newly introduced audio features are desired. The OC/Resources/Audio folder with its included WAV files are required for audio. The boot chime is the file OCEFIAudio_VoiceOver_Boot.wav. There are many other WAV files in the Audio folder when OC is freshly compiled; in face, over 90MB worth. Since this size can be too large for some EFI partitions, it was elected to remove all but the most rudimentary audio files from this folder for this repository. (See the Docs/Configuration.pdf for details on how to set up the audio features.) If you wish to have more WAV files, then compile OC on your own with OCBuilder and add them.
+
+Other, potentially useful drivers include OpenCanopy, OpenUsbKbDxe, Ps2MouseDxe, UsbMouseDxe. The latter activates a graphical user interface (menu system). OpenCanopy is turned on by default. To change, adjust the __config.plist__ file: see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will not be discussed. If you wish to use FileVault, please read the documentation and adjust the __config.plist__ file as needed.
 
@@ -179,7 +172,9 @@ If you're stuck at the Apple progress bar, chances are you're having an issue wi
 
 ### 9. SMBIOS - How to Easily Update in OC
 
-SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the __config.plist__ files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Also, do not use apps like "OpenCore configurator"; such editors will corrupt the __config.plist__ file.
+As mentioned above, the SMBIOS iMacPro1,1 is probably the best for this build and is very stable when running under Mojave.
+
+The SMBIOS data can be generated using an old copy of Clover (but do NOT use Clover to edit the __config.plist__ files for OpenCore), or using the recommended [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Also, do not use apps like "OpenCore configurator"; such editors will corrupt the __config.plist__ file.
 
 If you already have SNs and UUIDs values in an existing OpenCore config file, then cloning that SMBIOS data is easy. OC allows you to simpliy copy and paste sections, such as the PlatformInfo section, between config files.
 
@@ -234,7 +229,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
                |       |          |_______various SSDT files
                |       |_____Changelog.md, Configuration.pdf, Differences.pdf, Sample.plist, SampleFull.plist
                |_____Drivers
-               |       |______ApfsDriverLoader.efi, AudioDxe.efi, HFSPlus.efi, OpenUsbKbDxe.efi, OpenRuntime.efi, OpenCanopy.efi (plus others that are less important for this build)
+               |       |______AudioDxe.efi, HFSPlus.efi, OpenUsbKbDxe.efi, OpenRuntime.efi, OpenCanopy.efi (plus others that are less important for this build)
                |_____Kexts
                |       |______various *.kext files
                |
@@ -244,6 +239,7 @@ The images below show the steps. When editing the __config.plist__ file, the rec
                |       |_____Audio___ various WAV files
                |       |_____Font____ Font.bin and Font.png, for menu system
                |       |_____Image___ various files for menu system
+               |       |_____Label___ various files for menu system
                |
                |_____Tools
                |       |______OpenShell.efi, plus others (not discussed)
