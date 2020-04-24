@@ -120,7 +120,7 @@ AudioDxe, a new addition for OpenCore, is only needed if BootChime or some of th
 
 Other, potentially useful drivers include OpenCanopy, OpenUsbKbDxe, Ps2MouseDxe, UsbMouseDxe. The latter activates a graphical user interface (menu system). OpenCanopy is turned on by default. To change, adjust the __config.plist__ file: see Misc/Boot/PickerMode = _External_. Change _External_ to _Builtin_ to disable the graphics menu system, returning to the built in text menu system.
 
-OpenCanopy is the new menu system for OC. The developers do not yet recommend it for daily use (Apr, 2020), but I've found it stable to date. If you press the space bar when the items appear on screen, you'll get a few more "Auxillary" items for selection. A new one added in the early stages of v058 is a Shutdown option.
+OpenCanopy is the new menu system for OC. The developers do not yet recommend it for daily use (Apr, 2020), but I've found it stable to date. If you press the space bar when the items appear on screen, you'll get a few more "Auxiliary" items for selection. A new one added in the early stages of v058 is a Shutdown option.
 
 VirtualSMC.efi is now part of OpenCore. This file, along with various settings in the __config.plist__ file, are required if you choose to use FileVault. This repository does not use FileVault and so those settings along with any associated files will not be discussed. If you wish to use FileVault, please read the documentation and adjust the __config.plist__ file as needed.
 
