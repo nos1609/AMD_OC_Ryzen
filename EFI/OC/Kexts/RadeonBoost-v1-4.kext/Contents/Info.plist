@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>German</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.3 Copyright © 2020 chinamobilemag.de. All rights reserved.</string>
+	<string>1.4 Copyright © 2020 chinamobilemag.de. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>de.chinamobilemag.RadeonBoost</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3</string>
+	<string>1.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -46,7 +46,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -62,7 +62,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -78,7 +78,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -94,7 +94,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -110,7 +110,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -126,7 +126,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -215,7 +215,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -231,7 +231,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -247,7 +247,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -263,7 +263,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -279,7 +279,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -295,7 +295,7 @@
 							<integer>-1</integer>
 						</dict>
 						<key>control-id</key>
-						<integer>17</integer>
+						<integer>18</integer>
 						<key>max-power-state</key>
 						<integer>15</integer>
 						<key>min-power-state</key>
@@ -440,6 +440,22 @@
 						<key>min-power-state</key>
 						<integer>0</integer>
 					</dict>
+					<key>Vendor1002Device6860</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
 					<key>Vendor1002Device6863</key>
 					<dict>
 						<key>AGDCEnabled</key>
@@ -568,9 +584,75 @@
 						<key>min-power-state</key>
 						<integer>0</integer>
 					</dict>
+					<key>Vendor10deDevice05e2</key>
+					<dict>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>0</integer>
+							<key>IdleInterval</key>
+							<integer>250</integer>
+							<key>SensorOption</key>
+							<integer>1</integer>
+							<key>SensorSampleRate</key>
+							<integer>4</integer>
+							<key>TargetCount</key>
+							<integer>5</integer>
+							<key>Threshold_High</key>
+							<array>
+								<integer>87</integer>
+								<integer>87</integer>
+								<integer>87</integer>
+								<integer>100</integer>
+							</array>
+							<key>Threshold_Low</key>
+							<array>
+								<integer>0</integer>
+								<integer>87</integer>
+								<integer>87</integer>
+								<integer>87</integer>
+							</array>
+						</dict>
+						<key>LogControl</key>
+						<integer>0</integer>
+						<key>control-id</key>
+						<integer>18</integer>
+					</dict>
 				</dict>
 				<key>iMac19,1</key>
 				<dict>
+					<key>Vendor1002Device66a3</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
+					<key>Vendor1002Device66a7</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
 					<key>Vendor1002Device66af</key>
 					<dict>
 						<key>AGDCEnabled</key>
@@ -651,7 +733,55 @@
 						<key>min-power-state</key>
 						<integer>0</integer>
 					</dict>
+					<key>Vendor1002Device686d</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
+					<key>Vendor1002Device686e</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
 					<key>Vendor1002Device687f</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
+					<key>Vendor1002Device7310</key>
 					<dict>
 						<key>AGDCEnabled</key>
 						<integer>1</integer>
@@ -736,6 +866,38 @@
 				</dict>
 				<key>iMacPro1,1</key>
 				<dict>
+					<key>Vendor1002Device66a3</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
+					<key>Vendor1002Device66a7</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
 					<key>Vendor1002Device66af</key>
 					<dict>
 						<key>AGDCEnabled</key>
@@ -816,7 +978,55 @@
 						<key>min-power-state</key>
 						<integer>0</integer>
 					</dict>
+					<key>Vendor1002Device686d</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
+					<key>Vendor1002Device686e</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
 					<key>Vendor1002Device687f</key>
+					<dict>
+						<key>AGDCEnabled</key>
+						<integer>1</integer>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>-1</integer>
+						</dict>
+						<key>control-id</key>
+						<integer>17</integer>
+						<key>max-power-state</key>
+						<integer>15</integer>
+						<key>min-power-state</key>
+						<integer>0</integer>
+					</dict>
+					<key>Vendor1002Device7310</key>
 					<dict>
 						<key>AGDCEnabled</key>
 						<integer>1</integer>
@@ -864,8 +1074,44 @@
 						<key>min-power-state</key>
 						<integer>0</integer>
 					</dict>
+					<key>Vendor10deDevice05e2</key>
+					<dict>
+						<key>Heuristic</key>
+						<dict>
+							<key>ID</key>
+							<integer>0</integer>
+							<key>IdleInterval</key>
+							<integer>250</integer>
+							<key>SensorOption</key>
+							<integer>1</integer>
+							<key>SensorSampleRate</key>
+							<integer>4</integer>
+							<key>TargetCount</key>
+							<integer>5</integer>
+							<key>Threshold_High</key>
+							<array>
+								<integer>87</integer>
+								<integer>87</integer>
+								<integer>87</integer>
+								<integer>100</integer>
+							</array>
+							<key>Threshold_Low</key>
+							<array>
+								<integer>0</integer>
+								<integer>87</integer>
+								<integer>87</integer>
+								<integer>87</integer>
+							</array>
+						</dict>
+						<key>LogControl</key>
+						<integer>0</integer>
+						<key>control-id</key>
+						<integer>18</integer>
+					</dict>
 				</dict>
 			</dict>
+			<key>model</key>
+			<string>iMac19,1 iMacPro1,1 MacPro7,1 MacPro5,1 MacPro4,1</string>
 		</dict>
 		<key>RX480580590Boost</key>
 		<dict>
@@ -881,8 +1127,6 @@
 			<string>IOPCIDevice</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
-				<key>ATY,EFIVersion</key>
-				<string>01.00.3180</string>
 				<key>ATY,EFIVersionB</key>
 				<string>RadeonBoost</string>
 				<key>CFG_NVV</key>
@@ -924,8 +1168,6 @@
 			<string>IOPCIDevice</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
-				<key>ATY,EFIVersion</key>
-				<string>01.00.3180</string>
 				<key>ATY,EFIVersionB</key>
 				<string>RadeonBoost</string>
 				<key>Force_Load_FalconSMUFW</key>
@@ -948,8 +1190,6 @@
 			<string>IOPCIDevice</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
-				<key>ATY,EFIVersion</key>
-				<string>01.00.3180</string>
 				<key>ATY,EFIVersionB</key>
 				<string>RadeonBoost</string>
 				<key>Force_Load_FalconSMUFW</key>
@@ -972,8 +1212,6 @@
 			<string>IOPCIDevice</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
-				<key>ATY,EFIVersion</key>
-				<string>01.00.3180</string>
 				<key>ATY,EFIVersionB</key>
 				<string>RadeonBoost</string>
 				<key>Force_Load_FalconSMUFW</key>

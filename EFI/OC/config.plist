@@ -542,7 +542,7 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>RadeonBoost-v1-3.kext</string>
+				<string>RadeonBoost-v1-4.kext</string>
 				<key>Comment</key>
 				<string>GPU: AGPM and AMD Apple Framework injection</string>
 				<key>Enabled</key>
