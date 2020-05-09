@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>#WARNING - 1</key>
+	<string>This is just a sample. Do NOT try loading it.</string>
+	<key>#WARNING - 2</key>
+	<string>Ensure you understand EVERY field before booting.</string>
+	<key>#WARNING - 3</key>
+	<string>In most cases recommended to use Sample.plist</string>
+	<key>#WARNING - 4</key>
+	<string>Use SampleFull.plist for end of life models: 2011 and older.</string>
+	<key>#WARNING - 5</key>
+	<string>https://github.com/acidanthera/MacInfoPkg/blob/master/DataBase.md</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -24,7 +34,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>plugin-type=1</string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -32,7 +42,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -40,7 +50,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Notebook brightness</string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -48,7 +58,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -56,7 +66,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -64,7 +74,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -72,7 +82,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -80,7 +90,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -88,7 +98,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
@@ -96,11 +106,19 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
 				<string>SSDT-PMC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Read the comment in dsl sample</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-IMEI.aml</string>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -113,15 +131,11 @@
 				<key>Enabled</key>
 				<false/>
 				<key>OemTableId</key>
-				<data>
-				Q3B1UG0AAAA=
-				</data>
+				<data>Q3B1UG0AAAA=</data>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>
-				U1NEVA==
-				</data>
+				<data>U1NEVA==</data>
 			</dict>
 			<dict>
 				<key>All</key>
@@ -131,15 +145,11 @@
 				<key>Enabled</key>
 				<false/>
 				<key>OemTableId</key>
-				<data>
-				Q3B1MElzdAA=
-				</data>
+				<data>Q3B1MElzdAA=</data>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>
-				U1NEVA==
-				</data>
+				<data>U1NEVA==</data>
 			</dict>
 		</array>
 		<key>Patch</key>
@@ -152,31 +162,23 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				X1ExMQ==
-				</data>
+				<data>X1ExMQ==</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>OemTableId</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Replace</key>
-				<data>
-				WFExMQ==
-				</data>
+				<data>WFExMQ==</data>
 				<key>ReplaceMask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>
-				</data>
+				<data></data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -186,31 +188,23 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				X1ExMg==
-				</data>
+				<data>X1ExMg==</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>OemTableId</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Replace</key>
-				<data>
-				WFExMg==
-				</data>
+				<data>WFExMg==</data>
 				<key>ReplaceMask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>
-				</data>
+				<data></data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -291,9 +285,7 @@
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>layout-id</key>
-				<data>
-				AQAAAA==
-				</data>
+				<data>AQAAAA==</data>
 			</dict>
 		</dict>
 		<key>Block</key>
@@ -434,11 +426,9 @@
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data>
-			</data>
+			<data></data>
 			<key>Cpuid1Mask</key>
-			<data>
-			</data>
+			<data></data>
 		</dict>
 		<key>Patch</key>
 		<array>
@@ -452,26 +442,21 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Identifier</key>
 				<string>com.apple.driver.AppleRTC</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>Replace</key>
-				<data>
-				ww==
-				</data>
+				<data>ww==</data>
 				<key>ReplaceMask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Skip</key>
 				<integer>0</integer>
 			</dict>
@@ -485,26 +470,21 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Identifier</key>
 				<string>com.apple.driver.AppleACPIPlatform</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>MaxKernel</key>
 				<string>18.5.0</string>
 				<key>MinKernel</key>
 				<string>18.5.0</string>
 				<key>Replace</key>
-				<data>
-				ww==
-				</data>
+				<data>ww==</data>
 				<key>ReplaceMask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Skip</key>
 				<integer>0</integer>
 			</dict>
@@ -518,28 +498,21 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				6AAA//9miYMABQAA
-				</data>
+				<data>6AAA//9miYMABQAA</data>
 				<key>Identifier</key>
 				<string>com.apple.iokit.AppleBCM5701Ethernet</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>
-				/wAA////////////
-				</data>
+				<data>/wAA////////////</data>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>Replace</key>
-				<data>
-				uLQWAABmiYMABQAA
-				</data>
+				<data>uLQWAABmiYMABQAA</data>
 				<key>ReplaceMask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Skip</key>
 				<integer>0</integer>
 			</dict>
@@ -590,8 +563,6 @@
 			<string>None</string>
 			<key>HideAuxiliary</key>
 			<false/>
-			<key>HideSelf</key>
-			<true/>
 			<key>PickerAttributes</key>
 			<integer>1</integer>
 			<key>PickerAudioAssist</key>
@@ -645,6 +616,10 @@
 			<false/>
 			<key>AuthRestart</key>
 			<false/>
+			<key>BlacklistAppleUpdate</key>
+			<false/>
+			<key>BootProtect</key>
+			<string>Bootstrap</string>
 			<key>ExposeSensitiveData</key>
 			<integer>6</integer>
 			<key>HaltLevel</key>
@@ -707,36 +682,25 @@
 			<key>4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14</key>
 			<dict>
 				<key>DefaultBackgroundColor</key>
-				<data>
-				AAAAAA==
-				</data>
+				<data>AAAAAA==</data>
 				<key>UIScale</key>
-				<data>
-				AQ==
-				</data>
+				<data>AQ==</data>
 			</dict>
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<dict>
 				<key>rtc-blacklist</key>
-				<data>
-				</data>
+				<data></data>
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>SystemAudioVolume</key>
-				<data>
-				Rg==
-				</data>
+				<data>Rg==</data>
 				<key>boot-args</key>
 				<string>-v keepsyms=1</string>
 				<key>csr-active-config</key>
-				<data>
-				AAAAAA==
-				</data>
+				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
-				<data>
-				cnUtUlU6MjUy
-				</data>
+				<data>cnUtUlU6MjUy</data>
 			</dict>
 		</dict>
 		<key>Block</key>
@@ -799,9 +763,7 @@
 			<key>BoardProduct</key>
 			<string>Mac-AA95B1DDAB278B95</string>
 			<key>BoardRevision</key>
-			<data>
-			Bw==
-			</data>
+			<data>Bw==</data>
 			<key>DevicePathsSupported</key>
 			<integer>1</integer>
 			<key>FSBFrequency</key>
@@ -811,17 +773,11 @@
 			<key>PlatformName</key>
 			<string>platform</string>
 			<key>SmcBranch</key>
-			<data>
-			ajEzOF85AAA=
-			</data>
+			<data>ajEzOF85AAA=</data>
 			<key>SmcPlatform</key>
-			<data>
-			ajEzOAAAAAA=
-			</data>
+			<data>ajEzOAAAAAA=</data>
 			<key>SmcRevision</key>
-			<data>
-			AkYPAAAS
-			</data>
+			<data>AkYPAAAS</data>
 			<key>StartupPowerEvents</key>
 			<integer>0</integer>
 			<key>SystemProductName</key>
@@ -838,9 +794,7 @@
 			<key>MLB</key>
 			<string>M0000000000000001</string>
 			<key>ROM</key>
-			<data>
-			ESIzRFVm
-			</data>
+			<data>ESIzRFVm</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
@@ -855,19 +809,13 @@
 			<key>BID</key>
 			<string>Mac-AA95B1DDAB278B95</string>
 			<key>FirmwareFeatures</key>
-			<data>
-			dvWP/QAAAAA=
-			</data>
+			<data>dvWP/QAAAAA=</data>
 			<key>FirmwareFeaturesMask</key>
-			<data>
-			f//f/wAAAAA=
-			</data>
+			<data>f//f/wAAAAA=</data>
 			<key>MLB</key>
 			<string>M0000000000000001</string>
 			<key>ROM</key>
-			<data>
-			ESIzRFVm
-			</data>
+			<data>ESIzRFVm</data>
 		</dict>
 		<key>SMBIOS</key>
 		<dict>
@@ -898,17 +846,13 @@
 			<key>ChassisSerialNumber</key>
 			<string>W00000000001</string>
 			<key>ChassisType</key>
-			<integer>9</integer>
+			<integer>13</integer>
 			<key>ChassisVersion</key>
 			<string>Mac-AA95B1DDAB278B95</string>
 			<key>FirmwareFeatures</key>
-			<data>
-			dvWP/QAAAAA=
-			</data>
+			<data>dvWP/QAAAAA=</data>
 			<key>FirmwareFeaturesMask</key>
-			<data>
-			f//f/wAAAAA=
-			</data>
+			<data>f//f/wAAAAA=</data>
 			<key>MemoryFormFactor</key>
 			<integer>9</integer>
 			<key>PlatformFeature</key>
@@ -916,9 +860,7 @@
 			<key>ProcessorType</key>
 			<integer>4105</integer>
 			<key>SmcVersion</key>
-			<data>
-			Mi40NkYwMTIAAAAAAAAAAA==
-			</data>
+			<data>Mi40NkYwMTIAAAAAAAAAAA==</data>
 			<key>SystemFamily</key>
 			<string>iMac</string>
 			<key>SystemManufacturer</key>
@@ -984,6 +926,9 @@
 			<string>#OpenCanopy.efi</string>
 			<string>#AudioDxe.efi</string>
 			<string>#OpenUsbKbDxe.efi</string>
+			<string>#UsbMouseDxe.efi</string>
+			<string>#Ps2KeyboardDxe.efi</string>
+			<string>#Ps2MouseDxe.efi</string>
 			<string>#HiiDatabase.efi</string>
 			<string>#NvmExpressDxe.efi</string>
 			<string>#XhciDxe.efi</string>
